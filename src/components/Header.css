@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff; /* Or your desired background */
+  position: fixed; /* Keep header fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo-text {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f0b429;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.logo-hovered .logo-text {
+  background-color: #333;
+  transform: rotate(360deg);
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.logo-hovered span {
+  color: #f0b429;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-left: 2rem;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333; /* Adjust color as needed */
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f0b429;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #f0b429; /* Example hover color - match your brand */
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.menu-icon {
+  display: none; /* Hide on desktop */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-icon div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.menu-icon:hover div {
+  background-color: #f0b429;
+}
+
+/* Basic Responsive adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* Hide nav links on smaller screens */
+    /* We'll handle the mobile menu toggle later */
+  }
+  .menu-icon {
+    display: flex; /* Show hamburger icon */
+  }
+} 

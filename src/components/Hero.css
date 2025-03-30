@@ -1,0 +1,253 @@
+/* Remove or comment out previous .hero styles if no longer needed */
+/* /* */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #ffffff; /* White background */
+  text-align: center;
+  padding-top: 80px; /* Account for fixed header height */
+  position: relative; /* Needed for absolute positioning of arrow */
+  overflow: hidden; /* Prevent potential overflow issues */
+}
+
+.hero-content {
+  max-width: 800px; /* Limit content width */
+  margin: 0 auto; /* Center content */
+  padding: 0 1rem;
+}
+
+.philosophy {
+  color: #f0b429; /* Yellow color from image */
+  font-weight: bold;
+  font-size: 1.2rem; /* Adjust as needed */
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  color: #555555; /* Grey color from image */
+  font-size: 4rem; /* Adjust size as needed */
+  font-weight: bold;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #555555; /* Match h1 color or adjust */
+  text-decoration: none;
+  border: 2px solid #cccccc; /* Light grey border */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.scroll-down-arrow:hover {
+  transform: translateX(-50%) translateY(5px);
+  border-color: #f0b429;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .philosophy {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+*/
+
+/* New hero styles for split layout */
+.hero-split {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #111; /* Dark background */
+  color: #fff; /* White text */
+  overflow: hidden; /* Important for animations */
+  padding-top: 60px; /* Adjust if header height changes */
+  box-sizing: border-box;
+}
+
+.hero-left, .hero-right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  opacity: 0; /* Start hidden for animation */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero-left {
+  padding: 4rem 3rem 6rem 4rem; /* Adjust padding */
+  justify-content: flex-end; /* Align text content towards bottom */
+  transform: translateY(30px); /* Start slightly lower for fade-in-up */
+}
+
+.hero-right {
+  justify-content: center; /* Center the image vertically */
+  align-items: center;
+  background-color: #222; /* Slightly lighter background for contrast */
+  /* Add styles for the abstract graphic if needed */
+}
+
+.hero-image-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /* Adjust height as needed */
+    object-fit: cover; /* Cover the area */
+    z-index: 0;
+}
+
+.hero-text-content {
+    position: relative; /* Ensure text is above image */
+    z-index: 1;
+    margin-top: auto; /* Push content to bottom above arrow */
+}
+
+.hero-left h2 {
+  font-size: 2.8rem; /* Adjust size */
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #fff;
+}
+
+.hero-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px; /* Limit paragraph width */
+  color: #ccc; /* Light grey text */
+  margin-bottom: 3rem; /* Space before arrow */
+}
+
+.hero-image-right {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Add styles for the specific cut-out/graphic effect if desired */
+    /* Example for potential graphic overlay: */
+    /* mix-blend-mode: screen; */ 
+}
+
+.hero-split-arrow {
+    position: absolute; /* Position relative to .hero-left */
+    bottom: 30px;
+    left: 4rem; /* Align with left padding */
+    transform: none; /* Reset transform from previous style */
+    color: #fff;
+    border-color: #555;
+    /* Keep hover effect */
+}
+
+.hero-split-arrow:hover {
+  transform: translateY(5px); /* Keep simple hover effect */
+  border-color: #f0b429; /* Use brand color on hover */
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 1;
+}
+
+.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-left h2 {
+        font-size: 2.2rem;
+    }
+    .hero-left {
+        padding: 3rem 2rem 5rem 3rem;
+    }
+    .hero-split-arrow {
+        left: 3rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+  .hero-split {
+    flex-direction: column;
+    padding-top: 60px; /* Adjust if header height changes */
+  }
+  .hero-left, .hero-right {
+    width: 100%;
+    min-height: 50vh; /* Give each section height */
+  }
+  .hero-left {
+    order: 2; /* Text below image on mobile */
+    padding: 2rem 1.5rem 5rem 1.5rem;
+    justify-content: center;
+  }
+  .hero-right {
+    order: 1; /* Image above text on mobile */
+    min-height: 300px; /* Ensure image has some height */
+  }
+  .hero-image-left {
+    position: relative; /* Change positioning for column layout */
+    height: 300px; /* Fixed height or adjust as needed */
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+   .hero-text-content {
+     margin-top: 0;
+   }
+  .hero-left h2 {
+    font-size: 1.8rem;
+  }
+  .hero-left p {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .hero-split-arrow {
+      left: 1.5rem;
+      bottom: 20px;
+  }
+
+}
+
+/* Optional: Styles for the 'Works.' text */
+/*
+.works-text {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    font-size: 3rem; // Adjust as needed
+    font-family: 'Your Script Font', cursive; // Use a suitable font
+    color: #fff;
+    transform: rotate(-5deg); // Slight rotation
+}
+*/
+
+/* Remove previous .scroll-down-arrow styles if they conflict */
+/*
+.scroll-down-arrow { 
+     Ensure only hero-split-arrow styles apply if needed 
+     Or remove this if .hero-split-arrow covers everything 
+} 
+*/ 
